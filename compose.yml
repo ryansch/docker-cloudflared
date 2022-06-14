@@ -1,0 +1,10 @@
+services:
+  tunnel:
+    build:
+      context: .
+    container_name: cloudflared-tunnel
+    command: tunnel run --token CHANGEME
+    network_mode: "host"
+    volumes:
+      - ./tunnel:/etc/cloudflared
+    restart: always

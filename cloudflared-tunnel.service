@@ -1,0 +1,22 @@
+[Unit]
+Description=cloudflared-tunnel
+Requires=docker.service multi-user.target
+After=docker.service network-online.target dhcpd.service
+
+[Service]
+TimeoutStartSec=0
+TimeoutStopSec=30
+Restart=always
+RestartSec=10
+
+WorkingDirectory=/opt/cloudflared-tunnel
+
+ExecStartPre=-/usr/bin/docker compose kill
+ExecStartPre=-/usr/bin/docker compose rm -f
+
+ExecStart=/usr/bin/docker compose up --force-recreate
+
+ExecStop=/usr/bin/docker compose stop
+
+[Install]
+WantedBy=multi-user.target

@@ -29,7 +29,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # Place the other files in this repo into `/opt/cloudflared-tunnel`
 cd /opt/cloudflared-tunnel
 # Replace the CHANGEME items in compose.yml. Your tunnel token will be in the Zero Trust dashboard.
-docker compose up -d
+sudo systemctl enable --now /opt/cloudflared-tunnel/cloudflared-tunnel.service
 docker compose logs -f
 # Your tunnel should be up and show as connected in the dashboard!
 ```

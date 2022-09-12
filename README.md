@@ -2,8 +2,6 @@
 
 This repo sets up cloudflared to run on the docker host's network and use remote management so you can use the Zero Trust dashboard.
 
-Be sure to replace the values marked with `CHANGEME` in `compose.yml`.
-
 ## System Setup
 
 ```sh
@@ -28,7 +26,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```sh
 # Place the other files in this repo into `/opt/cloudflared-tunnel`
 cd /opt/cloudflared-tunnel
-# Replace the CHANGEME items in compose.yml. Your tunnel token will be in the Zero Trust dashboard.
+# Create a .env file and replace the CHANGEME items. Your tunnel token will be in the Zero Trust dashboard.
 sudo systemctl enable --now /opt/cloudflared-tunnel/cloudflared-tunnel.service
 docker compose logs -f
 # Your tunnel should be up and show as connected in the dashboard!

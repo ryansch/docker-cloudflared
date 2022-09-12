@@ -1,9 +1,12 @@
+# Example .env:
+# TUNNEL_TOKEN=CHANGEME
+
 services:
   tunnel:
     build:
       context: .
     container_name: cloudflared-tunnel
-    command: tunnel run --token CHANGEME
+    command: tunnel run --token ${TUNNEL_TOKEN}
     network_mode: "host"
     volumes:
       - ./tunnel:/etc/cloudflared

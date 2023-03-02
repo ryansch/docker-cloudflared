@@ -3,7 +3,7 @@
 
 services:
   tunnel:
-    image: cloudflare/cloudflared:2022.10.0-arm64
+    image: cloudflare/cloudflared:latest
     container_name: cloudflared-tunnel
     command: tunnel run --token ${TUNNEL_TOKEN}
     network_mode: "host"
